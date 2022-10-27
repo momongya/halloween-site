@@ -14,39 +14,66 @@
         <img class="flag_left" src="images/flag_left.png" alt="">
         <img class="flag_right" src="images/flag_right.png" alt="">
         <img class="haloween" src="images/haloween.png" alt="">
-        <img class="ya-niro_right" src="images/ya-niro_right.png" alt="">
-        <img class="ya-niro_left" src="images/ya-niro_left.png" alt="">
+        <img class="ya-niro_right" src="images/ya-niro-right2.svg" alt="">
+        <img class="ya-niro_left" src="images/ya-niro-left2.svg" alt="">
     </div>
 
     <ul class="rankings">
-        <li class="ranking 1st">1位</li>
-        <li class="ranking 2nd">2位</li>
-        <li class="ranking 3rd">3位</li>
-        <li class="ranking 4th">4位</li>
-        <li class="ranking 5th">5位</li>
+        <% @ranking_data.each_with_index do |x, i| %>
+            <% if 0<=i and i <=4 %> 
+        		<li class="ranking"><%=i+1 %>位　<span class="js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班　</span><%=x[:score] %>個</li>
+    		<% end %>
+		<% end %>
     </ul>
-
-
 
     <ul class="subrankings">
-        <li class="subranking 6th">6位</li>
-        <li class="subranking 7th">7位</li>
-        <li class="subranking 8th">8位</li>
-        <li class="subranking 9th">9位</li>
-        <li class="subranking 10th">10位</li>
+        <% @ranking_data.each_with_index do |x, i| %>
+            <% if 5<=i and i <=9 %> 
+    		   	<li class="subranking"><%=i+1 %>位<br><span class="js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班</span><br><%=x[:score] %>個</li>
+    		<% end %>
+		<% end %>
     </ul>
-
 
     <div class="images">
         <div class="result">
             <img src="images/result.png" alt="">
-            <h2>○○</h2>
+            <h2><%= @total_score %></h2>
         </div>
-        <img class="lit" src="images/lit.png" alt="">
+        <div class="logo">
+        <img class="ghost" src="images/ghost.png" alt="">
+        <img class="lit" src="images/lit-haloween.png" alt="">
+        </div>
         <img class="house" src="images/house.png" alt="">
     </div>
+    
+    <button class="button" onmousedown="party.confetti(this)">Click me!</button>
 
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+ <script src="./js/font.js"></script>
+ <script>
+    // import party from "party-js";
 
+    function let_us_party_button() {
+        party.confetti(this, {
+            count: party.variation.range(20, 40),
+        });
+    }
+    
+    function let_us_party() {
+        party.confetti(this, {
+            count: party.variation.range(20, 40),
+        });
+    }
+    
+    document.querySelector(".button").addEventListener("click", let_us_party_button);
+    
+    window.addEventListener("load", function () {
+        <%# if @total_score >= @target_score %>
+            setInterval(let_us_party, 1000)
+        <%# end %>
+    })
+ </script>
 </body>
 
 </html>

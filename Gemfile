@@ -1,16 +1,27 @@
 ruby '3.0.0'
 source 'https://rubygems.org'
 
-gem 'activerecord', '~> 6.1'
-gem 'bcrypt', '~> 3.1'
+gem 'rubocop'
+gem 'ruby-debug-ide'
+gem 'debase'
 gem 'dotenv', '~> 2.7'
-gem 'pg', '~> 1.2'
-gem 'rake', '~> 13.0'
-gem 'sinatra', '~> 2.1'
-gem 'sinatra-activerecord', '~> 2.0'
-gem 'sinatra-contrib', '~> 2.1'
-gem 'webrick', '~> 1.7'
+gem 'rcodetools'
+gem 'fastri'
 
-gem 'faraday'
-gem 'faraday_middleware'
-# gem 'faraday-net_http', '2.0.0.alpha-2'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'pry'
+gem 'sinatra-activerecord'
+gem 'activerecord', '5.2.3'
+gem 'rake'
+gem "faraday", "~> 1.8"
+gem 'pry'
+gem 'jwt'
+
+group :development do
+  gem 'sqlite3', '~>1.4.1'
+end
+
+group :production do
+  gem 'pg' , '0.21.0'
+end

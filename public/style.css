@@ -33,13 +33,31 @@ body {
 }
 .ya-niro_left {
   position: absolute;
-  left: 11%;
+  left: 10%;
   top: 62%;
+  animation: fuwafuwa 3s infinite;
 }
 .ya-niro_right {
   position: absolute;
-  left: 85%;
+  left: 83%;
   top: 25%;
+  animation: fuwafuwa2 3s infinite;
+}
+@keyframes fuwafuwa {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+@keyframes fuwafuwa2 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
 }
 /* ＝＝＝＝＝＝＝＝＝＝1~5位の設定＝＝＝＝＝＝＝＝＝ */
 .rankings {
@@ -59,6 +77,7 @@ body {
 
 /* ＝＝＝＝＝＝＝＝＝＝6~10位の設定＝＝＝＝＝＝＝＝＝ */
 .subrankings {
+  margin: 5rem;
   color: aliceblue;
   font-size: 2.5em;
   display: flex;
@@ -67,7 +86,7 @@ body {
 /* ＝＝＝＝＝＝＝＝＝＝2ページ目のイラスト設定＝＝＝＝＝＝＝＝＝ */
 .images {
   position: relative;
-  margin: 95px 0px;
+  margin: 95px 0px 50px 0px;
 }
 .result {
   text-align: center;
@@ -80,15 +99,37 @@ body {
   left: 48%;
   background-color: none;
 }
+  
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+  
+.ghost {
+  width: 10rem;
+  animation: fuwafuwa 3s infinite;
+}
+  
 .lit {
-  position: absolute;
-  top: 70%;
+  width: 20rem;
+  padding-left: 2.8rem;
+  animation: scale-anim 2s infinite alternate;
 }
 
 .house {
   position: absolute;
   right: 0%;
   top: 70%;
+}
+@keyframes scale-anim{
+  from {
+  transform: scale(0.8);
+  }
+
+  to {
+      transform: scale(1);
+  }
 }
 
 @media (max-width: 450px) {
@@ -146,11 +187,16 @@ body {
     top: 50%;
     left: 40%;
   }
+  
+  .ghost {
+    width: 20%;
+  }
+  
   .lit {
     top: 70%;
     width: 20%;
   }
-
+  
   .house {
     top: 70%;
     width: 20%;
