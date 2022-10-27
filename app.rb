@@ -2,30 +2,26 @@ require 'bundler/setup'
 Bundler.require
 require 'sinatra/reloader' if development?
 require './models.rb'
+require 'open-uri'
+require 'json'
+require 'net/http'
 
-get '/' do
+# get '/' do
     
-  erb :index
-end
+#   erb :index
+# end
 
 post '/zibu' do
     @zibu = "zibu"
-#   debug.log("test OK")
 end
 
-get '/api/game' do
-    uri = URI("http://express.heartrails.com/api/json")
+get '/' do
+    uri = URI("https://mbaas.api.nifcloud.com/2013-09-01/classes/HighScore")
     uri.query = URI.encode_www_form({
-        name: params[:name]
+        Name: "t"
     })
     res = Net::HTTP.get_response(uri)
-    json = JSON.parse(res.body)
-    if json["response"]["error"]
-        response ={ error: "No." }
-    else
-        response = {
-            next: json["response"]
-        }
-    end
-    json response
+    returned_json = JSON.parse(res.body)
+    @zibu = returned_json["results"]
+    erb :index
 end
