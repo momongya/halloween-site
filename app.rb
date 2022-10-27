@@ -22,6 +22,7 @@ get '/' do
     })
     res = Net::HTTP.get_response(uri)
     returned_json = JSON.parse(res.body)
+    puts "#{returned_json}"
     @zibu = returned_json["results"]
     erb :index
 end
