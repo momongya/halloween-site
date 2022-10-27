@@ -1,0 +1,159 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+@font-face {
+  font-family: 'Halloween Nightmare Demo';
+  src: url('font/Halloween Nightmare Demo (daFONT).ttfs');
+  font-family: 'KaiseiHarunoUmi-Bold';
+  src: url('font/KaiseiHarunoUmi-Bold.ttf');
+}
+body {
+  background: #612d7f;
+  font-family: 'Halloween Nightmare Demo', 'KaiseiHarunoUmi-Bold';
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝1ページ目のイラスト設定＝＝＝＝＝＝＝＝＝ */
+.top_illust {
+  position: relative;
+  height: 630px;
+}
+.haloween {
+  position: absolute;
+  left: 35%;
+}
+.flag_left {
+  position: absolute;
+  left: 0%;
+}
+.flag_right {
+  position: absolute;
+  right: 0%;
+}
+.ya-niro_left {
+  position: absolute;
+  left: 11%;
+  top: 62%;
+}
+.ya-niro_right {
+  position: absolute;
+  left: 85%;
+  top: 25%;
+}
+/* ＝＝＝＝＝＝＝＝＝＝1~5位の設定＝＝＝＝＝＝＝＝＝ */
+.rankings {
+  position: absolute;
+  left: 30%;
+  right: 25%;
+  top: 20%;
+  color: aliceblue;
+  font-size: 2.5em;
+}
+.ranking {
+  background: rgba(254, 255, 253, 0.5);
+  border-radius: 17px;
+  margin-top: 20px;
+  padding: 5px 10px;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝6~10位の設定＝＝＝＝＝＝＝＝＝ */
+.subrankings {
+  color: aliceblue;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: space-around;
+}
+/* ＝＝＝＝＝＝＝＝＝＝2ページ目のイラスト設定＝＝＝＝＝＝＝＝＝ */
+.images {
+  position: relative;
+  margin: 95px 0px;
+}
+.result {
+  text-align: center;
+}
+.result h2 {
+  color: aliceblue;
+  font-size: 100px;
+  position: absolute;
+  top: 55%;
+  left: 48%;
+  background-color: none;
+}
+.lit {
+  position: absolute;
+  top: 70%;
+}
+
+.house {
+  position: absolute;
+  right: 0%;
+  top: 70%;
+}
+
+@media (max-width: 450px) {
+  .top_illust {
+    height: 480px;
+  }
+  .flag_left {
+    height: 15%;
+  }
+  .flag_right {
+    height: 15%;
+    left: 50%;
+  }
+  .haloween {
+    height: 13%;
+    left: 23%;
+  }
+  .rankings {
+    margin: 0 auto;
+    font-size: 1.5em;
+    left: 15%;
+    top: 10%;
+  }
+  .images {
+    margin: 0;
+  }
+  .ya-niro_left {
+    left: 5%;
+    top: 80%;
+    width: 16%;
+  }
+  .ya-niro_right {
+    left: 55%;
+    width: 10%;
+    top: 14%;
+  }
+  .subrankings {
+    display: inline-block;
+    font-size: 15px;
+  }
+  .subranking {
+    margin-left: 65px;
+    margin-bottom: 5px;
+  }
+  .result {
+    margin-top: 30px;
+    text-align: left;
+  }
+  .result img {
+    width: 90%;
+  }
+  .result h2 {
+    font-size: 30px;
+
+    top: 50%;
+    left: 40%;
+  }
+  .lit {
+    top: 70%;
+    width: 20%;
+  }
+
+  .house {
+    top: 70%;
+    width: 20%;
+    left: 76%;
+  }
+}
