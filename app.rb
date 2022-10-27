@@ -21,7 +21,7 @@ get '/api/game' do
     res = Net::HTTP.get_response(uri)
     json = JSON.parse(res.body)
     if json["response"]["error"]
-        response ={ error: "No Station." }
+        response ={ error: "No." }
     else
         response = {
             next: json["response"]
