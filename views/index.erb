@@ -21,7 +21,7 @@
     <ul class="rankings">
         <% @ranking_data.each_with_index do |x, i| %>
             <% if 0<=i and i <=4 %> 
-        		<li class="ranking"><span class="rank"><%=i+1 %>位</span>　<span class="rank-size js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班　</span><span class="js_typing_rank"><%=x[:score] %></span>個</li>
+        		<li class="ranking"><span class="rank"><%=i+1 %>位</span>　<span class="rank-size js-resize-text"><%=x[:name] %>/<%=x[:team] %>班　</span><span class="js_typing_rank"><%=x[:score] %></span>個</li>
     		<% end %>
 		<% end %>
     </ul>
@@ -58,7 +58,7 @@
         </div>
     </div>
     
-    <button class="button" onmousedown="party.confetti(this)">Click me!</button>
+    <!--<button class="button" onmousedown="party.confetti(this)">Click me!</button>-->
 
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
