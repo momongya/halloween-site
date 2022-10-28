@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  over-flow:hidden;
 }
 @font-face {
   font-family: 'Halloween Nightmare Demo';
@@ -17,11 +18,13 @@ body {
 /* ＝＝＝＝＝＝＝＝＝＝1ページ目のイラスト設定＝＝＝＝＝＝＝＝＝ */
 .top_illust {
   position: relative;
-  height: 630px;
+  height: 600px;
 }
 .haloween {
   position: absolute;
-  left: 35%;
+  left: 25%;
+  top: -5%;
+  width: 50vw;
 }
 .flag_left {
   position: absolute;
@@ -34,13 +37,13 @@ body {
 .ya-niro_left {
   position: absolute;
   left: 10%;
-  top: 62%;
+  top: 80%;
   animation: fuwafuwa 3s infinite;
 }
 .ya-niro_right {
   position: absolute;
   left: 83%;
-  top: 25%;
+  top: 40%;
   animation: fuwafuwa2 3s infinite;
 }
 @keyframes fuwafuwa {
@@ -64,46 +67,163 @@ body {
   position: absolute;
   left: 30%;
   right: 25%;
-  top: 20%;
+  top: 35%;
   color: aliceblue;
   font-size: 2.5em;
 }
 .ranking {
   background: rgba(254, 255, 253, 0.5);
+  color: #231816;
   border-radius: 17px;
   margin-top: 20px;
   padding: 5px 10px;
+  display: flex;
+  justify-content: space-around;
+  opacity: 0;
+  animation-name:fadeUpAnime;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;
 }
 
+.rank-size {
+  width: 20vw;
+}
+
+.rank {
+  color: #fff;
+}
+.rank4 {
+animation-delay: 0.4s;
+}
+.rank3 {
+animation-delay: 0.8s;
+}
+.rank2 {
+animation-delay: 1.2s;
+}
+.rank1 {
+animation-delay: 1.6s;
+}
+.rank0 {
+animation-delay: 2s;
+}
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 /* ＝＝＝＝＝＝＝＝＝＝6~10位の設定＝＝＝＝＝＝＝＝＝ */
 .subrankings {
-  margin: 5rem;
+  margin: 15rem 5rem;
   color: aliceblue;
   font-size: 2.5em;
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
+
+.subranking {
+  width: 15vw;
+}
+
 /* ＝＝＝＝＝＝＝＝＝＝2ページ目のイラスト設定＝＝＝＝＝＝＝＝＝ */
 .images {
+ margin-top: 10rem;
+ position:relative;
+}
+.goal {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  color: #fff;
+  font-size: 2.5em;
+}
+.num {
+  top: 15%;
+  left: 20%;
+  font-size: 3em;
+}
+
+.fukidasi-left {
+  position: absolute;
+  top: -9%;
+  left: 7%;
+  max-width: 30rem;
+  height: 20rem;
+  animation: fukidasi-fuwafuwa 4s infinite;
+}
+
+@keyframes fukidasi-fuwafuwa {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.fukidasi-right {
+  position: absolute;
+  top: -10%;
+  right: 18%;
+  width: 20rem;
+  z-index: -1;
+  animation: fukidasi-fuwafuwa 4s infinite;
+}
+.score-img {
   position: relative;
-  margin: 95px 0px 50px 0px;
+  width: 40vw;
 }
 .result {
+  display: flex;
+  justify-content: center;
+  position: relative;
   text-align: center;
+  margin: auto;
 }
 .result h2 {
   color: aliceblue;
-  font-size: 100px;
+  text-align: center;
+  font-size: 90px;
   position: absolute;
-  top: 55%;
-  left: 48%;
+  top: 46%;
+  left: 42%;
   background-color: none;
 }
-  
+.total {
+  color: #fff;
+  font-size: 4rem;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.total-num {
+  font-size: 3.5rem;
+  position: absolute;
+  top: 70%;
+  right: 26%;
+}
+
+.result-text {
+  position: absolute;
+  color: #fff;
+  top: 7%;
+  right: 18%;
+  width: 20rem;
+  font-size: 1.8em;
+}
+
 .logo {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
+     position:absolute;
+  top:40%;
+  left:0%;
 }
   
 .ghost {
@@ -114,13 +234,23 @@ body {
 .lit {
   width: 20rem;
   padding-left: 2.8rem;
-  animation: scale-anim 2s infinite alternate;
+  z-index: -1;
+  animation: scale-anim 1.5s ease 1s infinite alternate;
 }
 
+
 .house {
-  position: absolute;
-  right: 0%;
-  top: 70%;
+  width: 20rem;
+  margin-right: 1rem;
+  position:absolute;
+  top:40%;
+  left:70%;
+}
+
+.bottom-images {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
 }
 @keyframes scale-anim{
   from {
@@ -144,13 +274,13 @@ body {
     left: 50%;
   }
   .haloween {
-    height: 13%;
+    height: 25%;
     left: 23%;
   }
   .rankings {
     margin: 0 auto;
     font-size: 1.5em;
-    left: 15%;
+    left: 17%;
     top: 10%;
   }
   .images {
@@ -167,19 +297,38 @@ body {
     top: 14%;
   }
   .subrankings {
-    display: inline-block;
     font-size: 15px;
+    margin: 0;
   }
   .subranking {
-    margin-left: 65px;
+    margin-left: 15px;
     margin-bottom: 5px;
   }
-  .result {
-    margin-top: 30px;
-    text-align: left;
+  .images{
+    margin-top: 50px;
   }
-  .result img {
-    width: 90%;
+  .result {
+    text-align: left;
+    font-size: 3px;
+    text-align: center;
+  }
+  .result-text{
+    text-align:right;
+    right:7%;
+     top:0%;
+  }
+
+ 
+.score-img {
+  width: 60vw;
+}
+  .fukidasi-left{
+    height:5rem;
+    left:1%;
+  }
+  .fukidasi-right{
+    right:5%;
+    width:25%;
   }
   .result h2 {
     font-size: 30px;
@@ -187,19 +336,26 @@ body {
     top: 50%;
     left: 40%;
   }
-  
-  .ghost {
-    width: 20%;
+  .total{
+    font-size: 1rem;
   }
-  
   .lit {
     top: 70%;
     width: 20%;
+    padding-left: 0;
   }
-  
+
   .house {
-    top: 70%;
+    top: 50%;
     width: 20%;
     left: 76%;
   }
+  .ghost {
+  width: 5rem;
 }
+.logo{
+  margin-lefy:0rem;
+}
+}
+
+

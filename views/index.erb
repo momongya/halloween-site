@@ -13,7 +13,7 @@
     <div class="top_illust">
         <img class="flag_left" src="images/flag_left.png" alt="">
         <img class="flag_right" src="images/flag_right.png" alt="">
-        <img class="haloween" src="images/haloween.png" alt="">
+        <img class="haloween" src="images/haloween.svg" alt="">
         <img class="ya-niro_right" src="images/ya-niro-right2.svg" alt="">
         <img class="ya-niro_left" src="images/ya-niro-left2.svg" alt="">
     </div>
@@ -21,7 +21,7 @@
     <ul class="rankings">
         <% @ranking_data.each_with_index do |x, i| %>
             <% if 0<=i and i <=4 %> 
-        		<li class="ranking"><%=i+1 %>位　<span class="js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班　</span><%=x[:score] %>個</li>
+        		<li class="ranking"><span class="rank"><%=i+1 %>位</span>　<span class="rank-size js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班　</span><span class="js_typing_rank"><%=x[:score] %></span>個</li>
     		<% end %>
 		<% end %>
     </ul>
@@ -29,48 +29,117 @@
     <ul class="subrankings">
         <% @ranking_data.each_with_index do |x, i| %>
             <% if 5<=i and i <=9 %> 
-    		   	<li class="subranking"><%=i+1 %>位<br><span class="js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班</span><br><%=x[:score] %>個</li>
+    		   	<li class="subranking"><%=i+1 %>位<br><span class="js-resize-text"><%=x[:name]  %>/<%=x[:team] %>班</span><br><span class="js_typing"><%=x[:score] %></span>個</li>
     		<% end %>
 		<% end %>
     </ul>
 
     <div class="images">
         <div class="result">
-            <img src="images/result.png" alt="">
-            <h2><%= @total_score %></h2>
+            <p class="goal">目標</p>
+            <p class="goal num">20000コ</p>
+            <img class="fukidasi-left" src="images/fukidasi_left2.png" alt="">
+            <img class="score-img"src="images/score.svg" alt="">
+            <img class="fukidasi-right" src="images/fukidasi_right.svg" alt="">
+            <p class="result-text">Congratulations！</p>
+            <p class="total">合計</p>
+            <p class="total total-num">コ</p>
+            <h2 class="js_typing"><%= @total_score %></h2>
         </div>
+        <div class="bottom-images">
         <div class="logo">
-        <img class="ghost" src="images/ghost.png" alt="">
-        <img class="lit" src="images/lit-haloween.png" alt="">
+        <img class="ghost" src="images/ghost.svg" alt="">
+        <img class="lit" src="images/lit.svg" alt="">
         </div>
-        <img class="house" src="images/house.png" alt="">
+        <div>
+        <img class="house" src="images/house.svg" alt="">
+        </div>
+       
+        </div>
     </div>
     
     <button class="button" onmousedown="party.confetti(this)">Click me!</button>
 
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
  <script src="./js/font.js"></script>
  <script>
-    // import party from "party-js";
+//  ----------------------------------------------------------
+let elements = document.getElementsByClassName('ranking');
+for(i = 0; i < 5; i++) {
+    elements[i].classList.add("rank" + i);
+}
 
+
+ var arr = []
+//初期値の設定
+function TypingInit() {
+	$('.js_typing').each(function (i) { //js_typingクラスを全て処理をおこなう
+		arr[i] = new ShuffleText(this);//動作させるテキストを配列に格納
+	});
+	$('.js_typing_rank').each(function (i) { //js_typingクラスを全て処理をおこなう
+		arr[i] = new ShuffleText(this);//動作させるテキストを配列に格納
+	});
+}
+//スクロールした際のアニメーションの設定
+function TypingAnime() {
+	$(".js_typing").each(function (i) {
+		var elemPos = $(this).offset().top - 50;//要素より、50px上の
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll >= elemPos - windowHeight) {
+			if(!$(this).hasClass("endAnime")){//endAnimeのクラスがあるかチェック
+				arr[i].start();//配列で登録テキストのアニメーションをおこなう
+				arr[i].duration = 800;//テキストが最終変化するまでの時間※規定値600
+				$(this).addClass("endAnime");//１度アニメーションした場合はendAnimeクラスを追加
+			}
+		}
+	});
+		$(".js_typing_rank").each(function (i) {
+		var elemPos = $(this).offset().top - 50;//要素より、50px上の
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll >= elemPos - windowHeight) {
+			if(!$(this).hasClass("endAnime")){//endAnimeのクラスがあるかチェック
+				arr[i].start();//配列で登録テキストのアニメーションをおこなう
+				arr[i].duration = 2600;//テキストが最終変化するまでの時間※規定値600
+				$(this).addClass("endAnime");//１度アニメーションした場合はendAnimeクラスを追加
+			}
+		}
+	});
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	TypingAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	TypingInit(); //初期設定
+TypingAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
+ //  ----------------------------------------------------------
+ 
     function let_us_party_button() {
-        party.confetti(this, {
-            count: party.variation.range(20, 40),
-        });
+        setInterval(let_us_party, 1000);
+        
     }
     
     function let_us_party() {
         party.confetti(this, {
             count: party.variation.range(20, 40),
         });
+        console.log("DWS")
     }
     
     document.querySelector(".button").addEventListener("click", let_us_party_button);
     
-    window.addEventListener("load", function () {
+    window.addEventListener('load', (event) => {
         <%# if @total_score >= @target_score %>
-            setInterval(let_us_party, 1000)
+        let_us_party_button;
         <%# end %>
     })
  </script>
