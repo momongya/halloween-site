@@ -1,4 +1,6 @@
 require 'bundler/setup'
 Bundler.require
 
-ActiveRecord::Base.establish_connection
+if development?
+    ActiveRecord::Base.establish_connection
+end

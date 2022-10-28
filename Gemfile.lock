@@ -15,6 +15,9 @@ GEM
     arel (9.0.0)
     ast (2.4.2)
     concurrent-ruby (1.1.10)
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.17)
     dotenv (2.8.1)
     faraday (1.10.2)
       faraday-em_http (~> 1.0)
@@ -43,6 +46,7 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.2)
+    jwt (2.5.0)
     minitest (5.16.3)
     multi_json (1.15.0)
     multipart-post (2.2.3)
@@ -51,7 +55,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
-    pg (0.21.0)
+    pg (1.4.4)
     rack (2.2.4)
     rack-protection (3.0.2)
       rack
@@ -98,14 +102,16 @@ GEM
     unicode-display_width (2.3.0)
 
 PLATFORMS
-  arm64-darwin-21
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
+  activerecord (= 5.2.3)
+  debase
   dotenv (~> 2.7)
   faraday (~> 1.8)
   fastri
-  pg (= 0.21.0)
+  jwt
+  pg
   rake
   rcodetools
   rubocop
@@ -116,7 +122,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4.1)
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   2.2.3
+   2.1.4

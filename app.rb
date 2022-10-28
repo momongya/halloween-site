@@ -7,9 +7,9 @@ require 'openssl'
 require 'json'
 require 'net/http'
 require 'dotenv/load'
-require 'sinatra/activerecord'
 require './models'
 require 'date'
+require 'jwt'
 
 before do
     API_ENDPOINT = 'https://mbaas.api.nifcloud.com/2013-09-01/'
