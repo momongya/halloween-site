@@ -52,25 +52,25 @@ get '/' do
         }
     }
     
-    @ranking_data = [
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-        {:name=>"Geek", :team=>"Geek", :score=>270},
-    ]
+    # @ranking_data = [
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    #     {:name=>"Geek", :team=>"Geek", :score=>270},
+    # ]
     
-    # @ranking_data = result.sort do |min, max|
-    #     max[:score] <=> min[:score]
-    # end
+    @ranking_data = result.sort do |min, max|
+        max[:score] <=> min[:score]
+    end
     
     total_score = 0
     @ranking_data.each{|data|

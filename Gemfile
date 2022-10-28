@@ -10,12 +10,10 @@ gem 'fastri'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'pry'
 gem 'sinatra-activerecord'
-gem 'activerecord', '5.2.3'
+# gem 'activerecord', '5.2.3'
 gem 'rake'
 gem "faraday", "~> 1.8"
-gem 'jwt'
 
 group :development do
   gem 'sqlite3', '~>1.4.1'
