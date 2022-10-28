@@ -15,7 +15,6 @@ gem 'sinatra-activerecord'
 gem 'activerecord', '5.2.3'
 gem 'rake'
 gem "faraday", "~> 1.8"
-gem 'pry'
 gem 'jwt'
 
 group :development do
