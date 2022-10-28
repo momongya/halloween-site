@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rubocop'
 gem 'ruby-debug-ide'
-gem 'debase'
+# gem 'debase'
 gem 'dotenv', '~> 2.7'
 gem 'rcodetools'
 gem 'fastri'

@@ -15,9 +15,6 @@ GEM
     arel (9.0.0)
     ast (2.4.2)
     concurrent-ruby (1.1.10)
-    debase (0.2.4.1)
-      debase-ruby_core_source (>= 0.10.2)
-    debase-ruby_core_source (0.10.17)
     dotenv (2.8.1)
     faraday (1.10.2)
       faraday-em_http (~> 1.0)
@@ -105,7 +102,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  debase
   dotenv (~> 2.7)
   faraday (~> 1.8)
   fastri
